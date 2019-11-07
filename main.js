@@ -1,52 +1,57 @@
+$(document).ready(function () {
 
-function MovieList(){
-	var movieList = {};
+	function MovieList(){
+		var movieList = {};
 
-	movieList.movies = [];
-	movieList.addMovie = addMovie;
-	movieList.removeMovie = removeMovie;
-	
-	return movieList;
-}
+		movieList.movies = [];
+		movieList.addMovie = addMovie;
+		movieList.removeMovie = removeMovie;
 
-function Movie(id, name, genre, description, year) {
-	var movie = {};
+		return movieList;
+	}
 
-	movie.id = id;
-	movie.name = name;
-	movie.imageUrl = "";
-	movie.genre = genre;
-	movie.description = description;
-	movie.year = year;
+	function Movie(id, name, genre, description, year) {
+		var movie = {};
 
-	return movie;
-}
+		movie.id = id;
+		movie.name = name;
+		movie.imageUrl = "";
+		movie.genre = genre;
+		movie.description = description;
+		movie.year = year;
 
-var createMovie = function(id, name, genre, description, year){
-	var movie = Movie(id, name, genre, description, year);
-	return movie;
-}
+		return movie;
+	}
 
-var addMovie = function(movie){
-	this.movies.push(movie);
-}
+	var createMovie = function(id, name, genre, description, year){
+		var movie = Movie(id, name, genre, description, year);
+		return movie;
+	};
 
-var removeMovie = function(id){
-	this.movies.forEach(function(element, i){
-		if (element.id === id) {
-			this.movies.splice(i, 1);
-		}
-	});
-}
+	var addMovie = function(movie){
+		this.movies.push(movie);
+	};
 
-var getMovie = function(id){
-	this.movies.forEach(function(element, i){
-		if (element.id === id) {
-			return element;
-		}
-	});
-}
+	var removeMovie = function(id){
+		this.movies.forEach(function(element, i){
+			if (element.id === id) {
+				this.movies.splice(i, 1);
+			}
+		});
+	};
 
-
+	var getMovie = function(id){
+		this.movies.forEach(function(element, i){
+			if (element.id === id) {
+				return element;
+			}
+		});
+	};
 
 
+	$('#search-form').on('submit', function (event) {
+		var searchText = $('search-text').val();
+		console.log(searchText);
+		event.preventDefault();
+	})
+});

@@ -1,4 +1,31 @@
 body {
 	background: rgb(24,22,42);
-	background: linear-gradient(90deg, rgba(24,22,42,1) 15%, rgba(55,55,87,1) 58%, rgba(76,43,107,1) 100%, rgba(9,9,64,1) 100%);
+	background: linear-gradient(90deg, rgba(24,22,42,1) 15%, rgba(55,55,87,1) 58%, rgba(41,31,51,1) 100%, rgba(9,9,64,1) 100%);
+}
+input[type=text] {
+    width: 230px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+            /*fix this*/
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    border: 2px solid black;
+    padding: 10px;
+    text-align: center;
 }
