@@ -62,16 +62,32 @@ $(document).ready(function () {
 				console.log(response);
 				var output = '';
 				$.each(movies, function (i, movie) {
+					// output += `
+					// <div>
+					// 	<img src="${movie.Poster}">
+					// 	<h5>${movie.Title}</h5>
+					// 	<a href="#" onclick="selectedMovie('${movie.imdbID}')">Movie Details</a>
+					// </div>
+					// `
 					output += `
-					<div> 
-						<img src="${movie.Poster}">
-						<h5>${movie.Title}</h5>
-						<a href="#" onclick="selectedMovie('${movie.imdbID}')">Movie Details</a>
-					</div>
+						<div class="card">
+							<div class="card-image-container">
+								<img src="${movie.Poster}">
+							</div>
+							<div class="card-content">
+								<p class="card-title text-medium">
+								 ${movie.Title}
+								</p>
+								<div class="card-info">
+									<p class="text-medium">120 mins</p>
+									<p class="card-link text-medium"><a onclick="selectedMovie('${movie.imdbID}') href="#">Movie Details</a></p>
+								</div>
+							</div>
+						</div>
 					`
 				});
 				console.log(output);
-				$('#movies').html(output);
+				$('.cards').html(output);
 			})
 			.catch(function (error) {
 				console.log(error);

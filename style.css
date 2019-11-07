@@ -1,7 +1,71 @@
-body {
-	background: rgb(24,22,42);
-	background: linear-gradient(90deg, rgba(24,22,42,1) 15%, rgba(55,55,87,1) 58%, rgba(41,31,51,1) 100%, rgba(9,9,64,1) 100%);
+* {
+    box-sizing: border-box;
+    /*making sure that margin and paddins is doing what is supposed to do*/
 }
+
+main {
+    display: grid;
+    grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;  /*now we have three deffirent columns*/
+    grid-gap: 40px;
+    padding: 60px 0;
+}
+.text-medium {
+    font-family: 'Cooper Black', sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    color: white;
+}
+
+.cards {
+    display: grid;
+    grid-column: 2 / span 12;
+    grid-template-columns: repeat(12, minmax(auto, 60px));  /*now we have three deffirent columns*/
+    grid-gap: 40px;
+}
+.card {
+    grid-column-end: span 4;
+    display: flex;
+    flex-direction: column;
+    background-color: #08162B;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+.card:hover {
+    transform: translateY(-7px);
+}
+.card-image-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-image-container img {
+    width: 100%;
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*transform: translate(-50%, -50%);*/
+}
+.card-content {
+    padding: 20px;
+}
+.card-title {
+    margin-bottom: 20px;
+}
+.card-info {
+    display: flex;
+    align-self: end;
+    align-items: center;
+}
+.card-link {
+    margin-left: auto;
+    padding: 5px 20px;
+    background-color: darkslategray;
+}
+
+
+body {
+    background-image: linear-gradient(to right, #041124, #040e1d, #020a17, #01060f, #000103);}
 input[type=text] {
     width: 230px;
     box-sizing: border-box;

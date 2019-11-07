@@ -5,19 +5,33 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-
 	<div class="center">
 		<h3>Search for a movie: </h3>
 		<form id="search-form">
 			<input id="search-text" type="text" name="search" placeholder="Search for a movie...">
 		</form>
 	</div>
-
-	<div id="show-div">
-		<div id="movies">
-
+	<main>
+		<div id="show-div">
 		</div>
-	</div>
+		<section class="cards">
+			<div class="card">
+				<div class="card-image-container">
+					<img src="https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg">
+				</div>
+				<div class="card-content">
+					<p class="card-title text-medium">
+						joker movie is the best
+					</p>
+					<div class="card-info">
+						<p class="text-medium">120 mins</p>
+						<p class="card-link text-medium">more details</p>
+
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
 
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
