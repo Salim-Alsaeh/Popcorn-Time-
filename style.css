@@ -4,7 +4,7 @@
     text-decoration: none;
     padding: 0;
     margin: 0;
-    font-family: "Roboto Light", sans-serif;
+    font-family: 'Supermercado One', sans-serif;
     /*making sure that margin and paddins is doing what is supposed to do*/
 }
 
@@ -13,42 +13,48 @@ header{
     height: 80px;
     display: block;
 }
+
 .inner-header {
+    color: #D25852;
     width: 1000px;
     height: 100%;
     display: block;
     margin: 0 auto;
-    background-color: red;
 }
+
 .navigation {
     float: right;
     height: 100%;
 }
+
 .navigation a {
     height: 100px;
     display: table;
     float: left;
     padding: 0px 20px;
 }
+
 .navigation a:last-child {
     height: 100px;
     display: table;
     float: left;
     padding: 0px 20px;
 }
+
 .navigation a li {
     display: table-cell;
     vertical-align: middle;
     height: 100%;
-    color: white;
     font-size: 16px;
     padding-left: 10px;
 }
+
 .logo-container {
     height: 100%;
     display: table;
     float: left;
 }
+
 .logo-container h1 {
     height: 100%;
     width: auto;
@@ -57,6 +63,7 @@ header{
     font-size: 32px;
     padding-left: 100px;
 }
+
 .logo-container img {
     height: 100%;
     width: auto;
@@ -64,6 +71,7 @@ header{
     vertical-align: middle;
     align: center;
 }
+
 main {
     display: grid;
     grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;  /*now we have three deffirent columns*/
@@ -71,7 +79,7 @@ main {
     padding: 60px 0;
 }
 .text-medium {
-    font-family: "Roboto Thin", sans-serif;
+    font-family: 'Supermercado One', sans-serif;
     font-size: 16px;
     line-height: 20px;
     color: white;
@@ -91,9 +99,11 @@ main {
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
+
 .card:hover {
     transform: translateY(-7px);
 }
+
 .card-image-container {
     width: 100%;
     overflow: hidden;
@@ -126,7 +136,10 @@ main {
 
 
 body {
-    background-image: linear-gradient(to right, #041124, #040e1d, #020a17, #01060f, #000103);}
+   background-image: linear-gradient(to right, #041124, #040e1d, #020a17, #01060f, #000103);
+
+    
+}
 
 input[type=text] {
     width: 230px;
@@ -136,16 +149,39 @@ input[type=text] {
     font-size: 16px;
     background-color: white;
     background-image: url('images/search-icon.png');
-            /*fix this*/
     background-position: 10px 10px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
 
 input[type=text]:focus {
     width: 100%;
+}
+
+.switch {
+    align-self: flex-end;
+    margin: 0.9375rem;
+}
+
+.inner-switch {
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #555;
+    border-radius: 1.25rem;
+    width: 3.125rem;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.1875rem;
+    margin-left: 0.3125rem;
+}
+
+.light,
+.light * {
+    background-image: linear-gradient(to right, aqua, aqua);    
+   
+    color: black;
+    border-color: white;
 }
 
 .center {

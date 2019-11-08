@@ -94,4 +94,19 @@ $(document).ready(function () {
 			})
 	}
 
+
+	$( ".inner-switch" ).on("click", function() {
+    if( $( "body" ).hasClass( "light" )) {
+      $( "body" ).removeClass( "light" );
+      $('.cards *').css('background-image', 'linear-gradient(to right, #041124, #040e1d, #020a17, #01060f, #000103)');
+
+      $( ".inner-switch" ).text( "OFF" );
+    } else {
+      $( "body" ).addClass( "light" );
+      $('.cards *').css('background-image', 'linear-gradient(to right, white, white)');
+      
+      $( ".inner-switch" ).text( "ON" );
+    }
+});
+
 });
