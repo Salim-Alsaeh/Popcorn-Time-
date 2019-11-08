@@ -94,18 +94,22 @@ $(document).ready(function () {
 			})
 	}
 
+    $('.navigation a li').css('color', '#D25852') //to fix the colors of the navigation buttons
 
 	$( ".inner-switch" ).on("click", function() {
+
     if( $( "body" ).hasClass( "light" )) {
       $( "body" ).removeClass( "light" );
       $('.cards *').css('background-image', 'linear-gradient(to right, #041124, #040e1d, #020a17, #01060f, #000103)');
+      $('.navigation a li').css('color', '#D25852')
+      $( ".inner-switch" ).html('<i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i>');
 
-      $( ".inner-switch" ).text( "OFF" );
     } else {
       $( "body" ).addClass( "light" );
-      $('.cards *').css('background-image', 'linear-gradient(to right, white, white)');
-      
-      $( ".inner-switch" ).text( "ON" );
+      $('.cards *').css('background-image', 'linear-gradient(to right, #F4F8FB, #F4F8FB)'); 
+      $('.navigation a li').css('color', 'black')
+      $( ".inner-switch" ).html('<i class="fa fa-moon-o fa-2x" aria-hidden="true"></i>');
+
     }
 });
 

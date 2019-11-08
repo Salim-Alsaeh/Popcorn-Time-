@@ -137,8 +137,7 @@ main {
 
 body {
    background-image: linear-gradient(to right, #041124, #040e1d, #020a17, #01060f, #000103);
-
-    
+   color: white;    
 }
 
 input[type=text] {
@@ -167,8 +166,6 @@ input[type=text]:focus {
 .inner-switch {
     display: inline-block;
     cursor: pointer;
-    border: 1px solid #555;
-    border-radius: 1.25rem;
     width: 3.125rem;
     text-align: center;
     font-size: 1rem;
@@ -178,8 +175,7 @@ input[type=text]:focus {
 
 .light,
 .light * {
-    background-image: linear-gradient(to right, aqua, aqua);    
-   
+    background-image: linear-gradient(to right, #C9E3DF, #C9E3DF, #C9E3DF);   
     color: black;
     border-color: white;
 }
