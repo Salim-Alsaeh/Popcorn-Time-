@@ -1,4 +1,18 @@
 $(document).ready(function () {
+// Poster: "https://m.media-amazon.com/images/M/MV5BNGVjNWI4ZGUtNzE0MS00YTJmLWE0ZDctN2ZiYTk2YmI3NTYyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg"
+// Title: "Joker"
+// Type: "movie"
+// Year: "2019"
+
+// imdbID: "tt7286456"
+// var regex = new RegExp("ReGeX" + testVar + "ReGeX");
+// ...
+// string.replace(regex, "replacement");
+// Update
+// Per some of the comments, it's important to note that you may want to escape the variable
+// if there is potential for malicious content (e.g. the variable comes from user input)
+
+
 
 	function MovieList(){
 		var movieList = {};
@@ -6,25 +20,37 @@ $(document).ready(function () {
 		movieList.movies = [];
 		movieList.addMovie = addMovie;
 		movieList.removeMovie = removeMovie;
-
+		movieList.getMovie = getMovie;
+		movieList.getMoviesBySearch = getMoviesBySearch;
 		return movieList;
 	}
 
-	function Movie(id, name, genre, description, year) {
+	function Movie(poster, title, type, year, imdbID) {
 		var movie = {};
 
-		movie.id = id;
-		movie.name = name;
-		movie.imageUrl = "";
-		movie.genre = genre;
-		movie.description = description;
+		movie.Poster = poster;
+		movie.Title = title;
+		movie.Type = type;
 		movie.year = year;
+		movie.imdbID = imdbID;
 
 		return movie;
 	}
+//var regexstring = "whatever";
+// var regexp = new RegExp(regexstring, "gi");
+// var str = "whateverTest";
+// var str2 = str.replace(regexp, "other");
+// document.write(str2);
+// Then you can construct regexstring in any way you want.
+	var getMoviesBySearch = function(searchInput){
+		var searchRegex = new RegExp(searchInput, 'i')
+		return filterSearch(this.movies, function(element){
+			return element['Title'].search(searchRegex);
+		});
+	}
 
-	var createMovie = function(id, name, genre, description, year){
-		var movie = Movie(id, name, genre, description, year);
+	var createMovie = function(poster, title, type, year, imdbID){
+		var movie = Movie(poster, title, type, year, imdbID);
 		return movie;
 	};
 
@@ -48,27 +74,29 @@ $(document).ready(function () {
 		});
 	};
 
+	var movieList = MovieList();
+
 	$('#search-form').on('submit', function (event) {
 		var searchText = $('#search-text').val();
 		console.log(searchText);
-		getMoviesFromApi(searchText);
+		getMoviesFromApiBySearch(searchText);
 		event.preventDefault();
 	});
 
-	function getMoviesFromApi(searchInput){
+	function getMoviesFromApiBySearch(searchInput){
 		axios.get('http://www.omdbapi.com/?s='+ searchInput + '&apikey=2bed335a')
 			.then(function (response) {
 				var movies = response.data.Search;
 				console.log(response);
+
+				movies.forEach(function(element){
+					movieList.addMovie(element);
+				});
+				console.log(movieList.movies);
+				console.log(movieList.getMoviesBySearch(searchInput));
+
 				var output = '';
 				$.each(movies, function (i, movie) {
-					// output += `
-					// <div>
-					// 	<img src="${movie.Poster}">
-					// 	<h5>${movie.Title}</h5>
-					// 	<a href="#" onclick="selectedMovie('${movie.imdbID}')">Movie Details</a>
-					// </div>
-					// `
 					output += `
 						<div class="card">
 							<div class="card-image-container">
@@ -86,7 +114,6 @@ $(document).ready(function () {
 						</div>
 					`
 				});
-				console.log(output);
 				$('.cards').html(output);
 			})
 			.catch(function (error) {
@@ -112,5 +139,16 @@ $(document).ready(function () {
 
     }
 });
+
+	function filterSearch(array, func) {
+	    var arr = [];
+	    for (var i = 0 ; i < array.length; i++){
+	        if (func(array[i]) >= 0){
+	            arr.push(array[i]);
+	        }
+	    }
+	    return arr;		
+	}
+
 
 });
