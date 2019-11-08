@@ -11,8 +11,8 @@
     <header class="header">
 		<div class="inner-header">
 			<div class="logo-container">
-				<img src="images/popcorn-logo.png">
-				<h1>Popcorn Time!</h1>
+				<img class="home-btn" src="images/popcorn-logo.png">
+				<h1 class="home-btn" >Popcorn Time!</h1>
 			</div>
 			<ul class="navigation">
 				<a href="#"><li>about</li></a>
@@ -22,10 +22,21 @@
 			</ul>
 		</div>
 	</header>
+	<div id="img-header">
+		<img src="images/joker-header.jpg">
+	</div>
 	<div class="center">
-		<h3>Search for a movie: </h3>
+		<h3> Dive into the encyclopedia of movies</h3>
 		<form id="search-form">
-			<input id="search-text" type="text" name="search" placeholder="Search for a movie...">
+			<input id="search-text" type="text" name="search" placeholder="Search for a movie or a series...">
+			<div class="radio-btns">
+				<label>
+					<input type="radio" name="database" value="local"> Local
+				</label>
+				<label>
+					<input type="radio" name="database" value="online" checked> Online
+				</label>
+			</div>
 		</form>
 	</div>
 	<main>
@@ -34,7 +45,6 @@
 		<section class="cards">
 		</section>
 	</main>
-
 	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type="text/javascript" src="main.js"></script>
