@@ -1,8 +1,69 @@
 * {
     box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto Light", sans-serif;
     /*making sure that margin and paddins is doing what is supposed to do*/
 }
 
+header{
+    width: 100%;
+    height: 80px;
+    display: block;
+}
+.inner-header {
+    width: 1000px;
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+    background-color: red;
+}
+.navigation {
+    float: right;
+    height: 100%;
+}
+.navigation a {
+    height: 100px;
+    display: table;
+    float: left;
+    padding: 0px 20px;
+}
+.navigation a:last-child {
+    height: 100px;
+    display: table;
+    float: left;
+    padding: 0px 20px;
+}
+.navigation a li {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+    color: white;
+    font-size: 16px;
+    padding-left: 10px;
+}
+.logo-container {
+    height: 100%;
+    display: table;
+    float: left;
+}
+.logo-container h1 {
+    height: 100%;
+    width: auto;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 32px;
+    padding-left: 100px;
+}
+.logo-container img {
+    height: 100%;
+    width: auto;
+    display: table-cell;
+    vertical-align: middle;
+    align: center;
+}
 main {
     display: grid;
     grid-template-columns: 1fr repeat(12, minmax(auto, 60px)) 1fr;  /*now we have three deffirent columns*/
@@ -10,7 +71,7 @@ main {
     padding: 60px 0;
 }
 .text-medium {
-    font-family: 'Cooper Black', sans-serif;
+    font-family: "Roboto Thin", sans-serif;
     font-size: 16px;
     line-height: 20px;
     color: white;
@@ -66,6 +127,7 @@ main {
 
 body {
     background-image: linear-gradient(to right, #041124, #040e1d, #020a17, #01060f, #000103);}
+
 input[type=text] {
     width: 230px;
     box-sizing: border-box;
@@ -73,7 +135,7 @@ input[type=text] {
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    background-image: url('searchicon.png');
+    background-image: url('images/search-icon.png');
             /*fix this*/
     background-position: 10px 10px;
     background-repeat: no-repeat;
@@ -89,7 +151,6 @@ input[type=text]:focus {
 .center {
     margin: auto;
     width: 50%;
-    border: 2px solid black;
     padding: 10px;
     text-align: center;
 }
