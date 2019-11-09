@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Movies App</title>
+	<title>Popcorn Time</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Supermercado+One&display=swap" rel="stylesheet">
@@ -15,7 +15,6 @@
 				<h1 class="home-btn" >Popcorn Time!</h1>
 			</div>
 			<ul class="navigation">
-				<a href="#"><li>about</li></a>
 				<a class="switch" href="#">
 					<li class="inner-switch"><i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i></i></li>
 				</a>
@@ -31,17 +30,16 @@
 			<input id="search-text" type="text" name="search" placeholder="Search for a movie or a series...">
 			<div class="radio-btns">
 				<label>
-					<input type="radio" name="database" value="local"> Local
+					<input id="local-btn" type="radio" name="database" value="local"> Local
 				</label>
 				<label>
-					<input type="radio" name="database" value="online" checked> Online
+					<input id="online-btn" type="radio" name="database" value="online" checked> Online
 				</label>
 			</div>
 		</form>
 	</div>
 	<main>
-		<div id="show-div">
-		</div>
+
 		<section class="cards">
 		</section>
 	</main>
