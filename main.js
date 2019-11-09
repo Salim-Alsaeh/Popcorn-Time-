@@ -63,6 +63,51 @@ $(document).ready(function () {
 		$('.info-link').css('color', '#D25852'); //changing the color of the links (Movie Details) to teh default dark color
 		$('#search-text').val('') // emptying the input search field
 	};
+    // this method provides search functionality by using the API
+	function getMoviesFromApiBySearch(searchInput){
+		//the API call using the url with the search input
+		axios.get('http://www.omdbapi.com/?s='+ searchInput + '&apikey=2bed335a')
+			.then(function (response) {
+				if (response !== undefined) { //checking if the response from the server is undefined or not
+					var movies = response.data.Search; //an array that will hold the returned search result
+					// adding all of the movies to local movies list array by using the movieList instance
+					movies.forEach(function(element){
+						movieList.addMovie(element);
+					});
+
+					var output = '';
+					//looping through the array while creating a new div and appending it to the output variable
+					$.each(movies, function (i, movie) {
+
+						output += `
+							<div class="card">
+								<div class="card-image-container">
+									<img src="${movie.Poster}">
+								</div>
+								<div class="card-content">
+									<p class="card-title text-medium">
+									 ${movie.Title}
+									</p>
+									<div class="card-info">
+										<p class="text-medium">${movie.Year}</p>
+
+										<p  class="card-link text-medium">
+										<a class="info-link" id="${movie.imdbID}" href="https://www.imdb.com/title/${movie.imdbID}" >Movie Details</a>
+										</p>
+									</div>
+								</div>
+							</div>
+						`;
+					});
+					$('.cards').html(output); // setting .cards div to be the resulted divs
+					$('.info-link').css('color', '#D25852');
+					$('#search-text').val('') //clearing the input text value
+				}
+			})
+			.catch(function (error) {
+				alert('Error occurred please try again later')
+			})
+	}
 	// this method creates a movie instance
 	var createMovie = function(poster, title, type, year, imdbID){
 		var movie = Movie(poster, title, type, year, imdbID);
@@ -119,52 +164,6 @@ $(document).ready(function () {
 		}
 		event.preventDefault();
 	});
-
-
-	function getMoviesFromApiBySearch(searchInput){
-		//the API call using the url with the search input
-		axios.get('http://www.omdbapi.com/?s='+ searchInput + '&apikey=2bed335a')
-			.then(function (response) {
-				if (response !== undefined) { //checking if the response from the server is undefined or not
-					var movies = response.data.Search; //an array that will hold the returned search result
-					// adding all of the movies to local movies list array by using the movieList instance
-					movies.forEach(function(element){
-						movieList.addMovie(element);
-					});
-
-					var output = '';
-					//looping through the array while creating a new div and appending it to the output variable
-					$.each(movies, function (i, movie) {
-
-						output += `
-							<div class="card">
-								<div class="card-image-container">
-									<img src="${movie.Poster}">
-								</div>
-								<div class="card-content">
-									<p class="card-title text-medium">
-									 ${movie.Title}
-									</p>
-									<div class="card-info">
-										<p class="text-medium">${movie.Year}</p>
-
-										<p  class="card-link text-medium">
-										<a class="info-link" id="${movie.imdbID}" href="https://www.imdb.com/title/${movie.imdbID}" >Movie Details</a>
-										</p>
-									</div>
-								</div>
-							</div>
-						`;
-					});
-					$('.cards').html(output); // setting .cards div to be the resulted divs
-					$('.info-link').css('color', '#D25852');
-					$('#search-text').val('') //clearing the input text value
-				}
-			})
-			.catch(function (error) {
-				alert('Error occurred please try again later')
-			})
-	}
 
     $('.navigation a li').css('color', '#D25852'); //to fix the colors of the navigation buttons
     $('.center h3').css('color', '#D25852');
